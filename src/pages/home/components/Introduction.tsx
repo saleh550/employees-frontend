@@ -30,9 +30,13 @@ const Introduction: React.FC = () => {
 
       {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full text-start border rounded-lg overflow-hidden bg-white  dark:bg-gray-800">
-          <thead className="bg-gray-100 dark:bg-gray-800">
-            <tr>
+        <table
+          className="w-full text-start border rounded-lg overflow-hidden 
+                  bg-white dark:bg-gray-800 
+                  text-gray-800 dark:text-gray-100"
+        >
+          <thead className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
+            <tr className="border-t dark:border-gray-700">
               <th className="p-2">{t("NAME")}</th>
               <th className="p-2">{t("HOURS")}</th>
               <th className="p-2">{t("DAYS")}</th>
