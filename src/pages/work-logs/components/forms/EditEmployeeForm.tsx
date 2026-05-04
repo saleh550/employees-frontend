@@ -27,6 +27,9 @@ const EditEmployeeForm: React.FC<EditEmployeeFormProps> = ({
   const { t } = useTranslation();
   const { updateEmployee, selectedEmployee, setSelectedEmployee } =
     useEmployees();
+  if (!selectedEmployee) {
+    return;
+  }
   const [isLoading, setIsLoading] = React.useState(false);
   useEffect(() => {
     if (selectedEmployee) {

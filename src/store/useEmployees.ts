@@ -7,8 +7,8 @@ interface EmployeesStoreType {
   setEmployees: (employees: EmployeeType[]) => void;
   addEmployee: (employee: EmployeeType) => void;
   setSelectedEmployee: (employee: EmployeeType | null) => void;
-  deleteEmployee?: (id: string) => void;
-  updateEmployee?: (employee: EmployeeType) => void;
+  deleteEmployee: (id: string) => void;
+  updateEmployee: (employee: EmployeeType) => void;
 }
 export const useEmployees = create<EmployeesStoreType>()(
   persist(
@@ -26,7 +26,7 @@ export const useEmployees = create<EmployeesStoreType>()(
       updateEmployee: (updatedEmployee) =>
         set((state) => ({
           employees: state.employees.map((emp) =>
-            emp._id === updatedEmployee._id ? updatedEmployee : emp
+            emp._id === updatedEmployee._id ? updatedEmployee : emp,
           ),
         })),
     }),

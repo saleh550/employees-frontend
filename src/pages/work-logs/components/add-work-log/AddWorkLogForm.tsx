@@ -31,6 +31,9 @@ const AddWorkLogForm: React.FC<AddEmployeeFormProps> = ({
   const { t } = useTranslation();
   const { selectedEmployee } = useEmployees();
   const [isLoading, setIsLoading] = React.useState(false);
+  if (!selectedEmployee) {
+    return;
+  }
   const {
     register,
     handleSubmit,

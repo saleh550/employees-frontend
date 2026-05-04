@@ -15,6 +15,9 @@ const EmployeeDetails: React.FC<Props> = ({}) => {
   const { deleteEmployee, selectedEmployee } = useEmployees();
   const [isEditModalOpen, setIsEditModalOpen] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
+  if (!selectedEmployee) {
+    return;
+  }
   const onEdit = () => {
     setIsEditModalOpen(true);
   };
