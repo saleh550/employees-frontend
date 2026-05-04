@@ -76,5 +76,9 @@
   "DAY_TYPE": "סוג יום",
   "DELETE_CONFIRM": "האם אתה בטוח שברצונך למחוק יומן זה?",
   "DELETE": "מחיקה",
-  "DELETING": "מחיקה..."
+  "DELETING": "מחיקה...",
+  "EDIT_EMPLOYEE": "ערוך עובד",
+  "EDIT_EMPLOYEE_FORM_TITLE": "ערוך עובד",
+  "EDIT": "עריכה",
+  "UPDATE_EMPLOYEE": "עדכון עובד"
 }

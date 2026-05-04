@@ -76,5 +76,9 @@
   "DAY_TYPE": "نوع اليوم",
   "DELETE_CONFIRM": "هل أنت متأكد أنك تريد حذف هذا السجل؟",
   "DELETE": "حذف",
-  "DELETING": "جار الحذف..."
+  "DELETING": "جار الحذف...",
+  "EDIT_EMPLOYEE": "تعديل الموظف",
+  "EDIT_EMPLOYEE_FORM_TITLE": "تعديل الموظف",
+  "EDIT": "تعديل",
+  "UPDATE_EMPLOYEE": "تحديث الموظف"
 }

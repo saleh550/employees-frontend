@@ -1,5 +1,11 @@
 import { useTranslation } from "react-i18next";
 import type { EmployeeType } from "../../../types/types";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useEmployees } from "../../../store/useEmployees";
+import { deleteEmployeeUtil } from "../../../utils/employees.utils";
+import Modal from "../../../components/modals/Modal";
+import EditEmployeeForm from "./forms/EditEmployeeForm";
 
 interface Props {
   employee: EmployeeType;
@@ -7,6 +13,22 @@ interface Props {
 
 const EmployeeDetails: React.FC<Props> = ({ employee }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { deleteEmployee } = useEmployees();
+  const [isEditModalOpen, setIsEditModalOpen] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const onEdit = () => {
+    setIsEditModalOpen(true);
+  };
+
+  const onDelete = async () => {
+    await deleteEmployeeUtil(
+      employee._id,
+      deleteEmployee,
+      setIsLoading,
+      navigate,
+    );
+  };
   return (
     <div className="p-6 bg-black/5 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-6 mx-2">
       {/* Header */}
@@ -73,6 +95,39 @@ const EmployeeDetails: React.FC<Props> = ({ employee }) => {
           Delete
         </button>
       </div> */}
+      <div className="mt-6 flex gap-3">
+        {/* Edit */}
+        <button
+          onClick={onEdit}
+          className="flex-1 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white text-sm font-medium shadow-md transition-all duration-200 active:scale-95"
+        >
+          ✏️ {t("EDIT")}
+        </button>
+
+        {/* Delete */}
+        <button
+          onClick={() => {
+            const confirmDelete = window.confirm(
+              t("DELETE_CONFIRM", "Are you sure you want to delete this log?"),
+            );
+            if (confirmDelete) {
+              onDelete?.();
+            }
+          }}
+          className="flex-1 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white text-sm font-medium shadow-md transition-all duration-200 active:scale-95"
+        >
+          🗑️ {isLoading ? t("DELETING") : t("DELETE")}
+        </button>
+      </div>
+      <Modal
+        isOpen={isEditModalOpen}
+        setIsOpen={setIsEditModalOpen}
+        title={t("EDIT_EMPLOYEE")}
+      >
+        {/* <AddWorkLogForm setIsAddWorkLogModalOpen={setIsAddWorkLogModalOpen} /> */}
+        {/* <AddWorkLogForm setIsAddEmployeeModalOpen={setIsAddWorkLogModalOpen} /> */}
+        <EditEmployeeForm setIsEmployeeModalOpen={setIsEditModalOpen} />
+      </Modal>
     </div>
   );
 };

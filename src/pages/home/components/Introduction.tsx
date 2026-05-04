@@ -2,13 +2,14 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useEmployees } from "../../../store/useEmployees";
 
-
-
-
 const Introduction: React.FC = () => {
-    const {employees} = useEmployees();
+  const { employees } = useEmployees();
+
   const { t } = useTranslation();
-  const total = employees.reduce((acc, emp) => acc + emp.workAmount * emp.rate, 0);
+  const total = employees.reduce(
+    (acc, emp) => acc + emp.workAmount * emp.rate,
+    0,
+  );
 
   return (
     <div className="p-6 bg-black/5 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-6">
@@ -44,10 +45,16 @@ const Introduction: React.FC = () => {
             {employees.map((emp, index) => (
               <tr key={index} className="border-t">
                 <td className="p-2">{emp.name}</td>
-                <td className="p-2">{emp.payType=="hour" ? emp.workAmount : "-"}</td>
-                <td className="p-2">{emp.payType=="day" ? emp.workAmount : "-"}</td>
+                <td className="p-2">
+                  {emp.payType == "hour" ? emp.workAmount : "-"}
+                </td>
+                <td className="p-2">
+                  {emp.payType == "day" ? emp.workAmount : "-"}
+                </td>
                 <td className="p-2">{emp.rate}</td>
-                <td className="p-2 font-semibold">₪{emp.workAmount * emp.rate}</td>
+                <td className="p-2 font-semibold">
+                  ₪{emp.workAmount * emp.rate}
+                </td>
               </tr>
             ))}
           </tbody>

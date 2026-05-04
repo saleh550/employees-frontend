@@ -14,3 +14,20 @@ export const addNewEmployeeApi = (data: FieldValues) => {
     data,
   });
 };
+
+export const deleteEmployeeApi = (id: string) => {
+  return privateRequest({
+    url: `/api/employees/${id}`,
+    method: "DELETE",
+  });
+};
+
+export const editNewEmployeeApi = (id: string, data: FieldValues) => {
+  return privateRequest({
+    url: `/api/employees/${id}`,
+    method: "PUT",
+    data,
+  });
+};
+
+
