@@ -64,14 +64,14 @@ const AddEmployeeForm: React.FC<AddEmployeeFormProps> = ({
 
   return (
     <div className="max-w-lg mx-auto bg-transparent p-6 rounded-2xl ">
-      <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
+      <h2 className="text-2xl font-semibold text-center text-gray-800 dark:text-gray-100 mb-6">
         {t("ADD_EMPLOYEE_FORM_TITLE")}
       </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         {/* Name */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
             {t("ADD_EMPLOYEE_FORM_NAME")}
           </label>
           <input
@@ -88,7 +88,7 @@ const AddEmployeeForm: React.FC<AddEmployeeFormProps> = ({
         </div>
         {/* Pay Type */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
             {t("ADD_EMPLOYEE_FORM_PAY_TYPE")}
           </label>
           <select
@@ -107,7 +107,7 @@ const AddEmployeeForm: React.FC<AddEmployeeFormProps> = ({
         </div>
         {/* Rate */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
             {payType === "hour"
               ? t("ADD_EMPLOYEE_FORM_RATE_Hour")
               : t("ADD_EMPLOYEE_FORM_RATE_Day")}
@@ -130,7 +130,7 @@ const AddEmployeeForm: React.FC<AddEmployeeFormProps> = ({
         </div>
         {/* Hire Date */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
             {t("ADD_EMPLOYEE_FORM_HIRE_DATE")}
           </label>
           <input
@@ -149,7 +149,7 @@ const AddEmployeeForm: React.FC<AddEmployeeFormProps> = ({
         </div>
         {/* default work hours */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
             {t("ADD_EMPLOYEE_FORM_DEFAULT_WORK_HOURS")}
           </label>
           <div className="flex space-x-2">

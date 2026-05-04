@@ -89,7 +89,7 @@ const EditEmployeeForm: React.FC<EditEmployeeFormProps> = ({
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         {/* Name */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
             {t("ADD_EMPLOYEE_FORM_NAME")}
           </label>
           <input
@@ -125,7 +125,7 @@ const EditEmployeeForm: React.FC<EditEmployeeFormProps> = ({
           )}
         </div> */}
         <div>
-          <label className="block font-medium text-gray-700 mb-2">
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-2">
             {t("ADD_WORK_LOG_FORM_PAY_TYPE")}
           </label>
 
@@ -177,7 +177,7 @@ const EditEmployeeForm: React.FC<EditEmployeeFormProps> = ({
         </div>
         {/* Rate */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
             {payType === "hour"
               ? t("ADD_EMPLOYEE_FORM_RATE_Hour")
               : t("ADD_EMPLOYEE_FORM_RATE_Day")}
@@ -201,7 +201,7 @@ const EditEmployeeForm: React.FC<EditEmployeeFormProps> = ({
         </div>
         {/* Hire Date */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
             {t("ADD_EMPLOYEE_FORM_HIRE_DATE")}
           </label>
           <input
@@ -222,7 +222,7 @@ const EditEmployeeForm: React.FC<EditEmployeeFormProps> = ({
         </div>
         {/* default work hours */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
             {t("ADD_EMPLOYEE_FORM_DEFAULT_WORK_HOURS")}
           </label>
           <div className="flex space-x-2">
