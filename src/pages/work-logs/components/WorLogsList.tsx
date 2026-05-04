@@ -6,7 +6,6 @@ import YearsScroller from "./YearsScroller";
 import { useParams } from "react-router-dom";
 import { getWorkLogsForEmployee } from "../../../utils/worklogs.utils";
 import WorkLogCard from "./WorkLogCard";
-import { GoPersonAdd } from "react-icons/go";
 import { useTranslation } from "react-i18next";
 import Modal from "../../../components/modals/Modal";
 import AddWorkLogForm from "./add-work-log/AddWorkLogForm";
@@ -77,8 +76,8 @@ const WorkLogsList: React.FC<Props> = ({
           onClick={() => setIsAddWorkLogModalOpen(true)}
           className="mb-4 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition flex justify-center items-center gap-2"
         >
-          <GoPersonAdd className="text-lg font-semibold" />{" "}
-          {t("ADD_NEW_WORK_LOG")}
+          {/* <GoPersonAdd className="text-lg font-semibold" />{" "} */}
+          ➕ {t("ADD_NEW_WORK_LOG")}
         </button>
       </div>
       <YearsScroller onSelect={(y) => onSelectYear(y)} />

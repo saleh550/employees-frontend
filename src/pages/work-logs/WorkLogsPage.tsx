@@ -13,7 +13,7 @@ interface props {}
 const WorkLogsPage: React.FC<props> = () => {
   const { employeeId } = useParams();
   const { selectedEmployee, setSelectedEmployee, employees } = useEmployees();
-  const { setWrokLogs } = useWorkLogs();
+  const { setWrokLogs, selectedMonth, selectedYear } = useWorkLogs();
   const [isLoading, setIsLoading] = React.useState(false);
   const [isAddWorkLogModalOpen, setIsAddWorkLogModalOpen] =
     React.useState(false);
@@ -24,8 +24,8 @@ const WorkLogsPage: React.FC<props> = () => {
         const date = new Date();
         const data = {
           employeeId,
-          month: date.getMonth() + 1,
-          year: date.getFullYear(),
+          month: selectedMonth || date.getMonth() + 1,
+          year: selectedYear || date.getFullYear(),
         };
         await getWorkLogsForEmployee(data, setWrokLogs, setIsLoading);
       }
