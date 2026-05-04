@@ -57,7 +57,7 @@ const EmployeeDetails: React.FC<Props> = ({ employee }) => {
       {employee.defaultStartTime && employee.defaultEndTime && (
         <div className="mt-4 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            <span className="font-semibold">Default Shift:</span>{" "}
+            <span className="font-semibold">{t("DEFAULT_WORK_HOURS")}:</span>{" "}
             {employee.defaultStartTime} - {employee.defaultEndTime}
           </p>
         </div>

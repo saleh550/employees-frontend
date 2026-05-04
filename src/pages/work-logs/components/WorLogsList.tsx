@@ -10,6 +10,7 @@ import { GoPersonAdd } from "react-icons/go";
 import { useTranslation } from "react-i18next";
 import Modal from "../../../components/modals/Modal";
 import AddWorkLogForm from "./add-work-log/AddWorkLogForm";
+import EmptyWorkLogs from "../../../components/empty-message/EmptyWorkLogs";
 
 interface Props {
   rate: number; // rate of employee
@@ -17,7 +18,7 @@ interface Props {
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setIsAddWorkLogModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  isAddWorkLogModalOpen:boolean;
+  isAddWorkLogModalOpen: boolean;
 }
 
 const WorkLogsList: React.FC<Props> = ({
@@ -25,7 +26,7 @@ const WorkLogsList: React.FC<Props> = ({
   isLoading,
   setIsLoading,
   setIsAddWorkLogModalOpen,
-  isAddWorkLogModalOpen
+  isAddWorkLogModalOpen,
 }) => {
   const { employeeId } = useParams();
   const { t } = useTranslation();
@@ -35,6 +36,7 @@ const WorkLogsList: React.FC<Props> = ({
     selectedMonth,
     selectedYear,
     setWrokLogs,
+    workLogs,
   } = useWorkLogs();
 
   const onSelectYear = async (year: number) => {
@@ -65,7 +67,7 @@ const WorkLogsList: React.FC<Props> = ({
       <div className="flex justify-between">
         <div className="rounded-2xl  mb-6  mx-2">
           <h2 className="  text-xl font-semibold text-gray-900 dark:text-white">
-          {t("WORK_LOGS")}
+            {t("WORK_LOGS")}
           </h2>
         </div>
         <button
@@ -79,12 +81,21 @@ const WorkLogsList: React.FC<Props> = ({
       <YearsScroller onSelect={(y) => onSelectYear(y)} />
       <MonthsScroller onSelect={(m) => onSelectMonth(m)} />
       {/* <IOSDatePicker/> */}
-      {isLoading ? <WorkLogsLoadingCards /> : <WorkLogCard rate={rate} />}
-              <Modal isOpen={isAddWorkLogModalOpen} setIsOpen={setIsAddWorkLogModalOpen} title={t("ADD_NEW_WORK_LOG")}>
-                {/* <AddWorkLogForm setIsAddWorkLogModalOpen={setIsAddWorkLogModalOpen} /> */}
-                <AddWorkLogForm setIsAddEmployeeModalOpen={setIsAddWorkLogModalOpen} />
-             
-            </Modal>
+      {isLoading ? (
+        <WorkLogsLoadingCards />
+      ) : workLogs.length > 0 ? (
+        <WorkLogCard rate={rate} />
+      ) : (
+        <EmptyWorkLogs onAdd={() => setIsAddWorkLogModalOpen(true)} />
+      )}
+      <Modal
+        isOpen={isAddWorkLogModalOpen}
+        setIsOpen={setIsAddWorkLogModalOpen}
+        title={t("ADD_NEW_WORK_LOG")}
+      >
+        {/* <AddWorkLogForm setIsAddWorkLogModalOpen={setIsAddWorkLogModalOpen} /> */}
+        <AddWorkLogForm setIsAddEmployeeModalOpen={setIsAddWorkLogModalOpen} />
+      </Modal>
     </div>
   );
 };

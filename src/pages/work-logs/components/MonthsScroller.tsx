@@ -85,7 +85,7 @@ const MonthsPicker: React.FC<Props> = ({ onSelect }) => {
   return (
     <div className="relative w-full">
       {/* Center indicator */}
-      <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-orange-400 opacity-30 -translate-x-1/2 z-10" />
+      <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-orange-500 opacity-30 -translate-x-1/2 z-10" />
 
       <div
         ref={containerRef}
@@ -124,7 +124,7 @@ const MonthsPicker: React.FC<Props> = ({ onSelect }) => {
                   className={`w-14 h-14 flex items-center justify-center rounded-full text-sm font-bold transition-all duration-300
                   ${
                     isSelected
-                      ? "bg-orange-500 text-white shadow-lg"
+                      ? "bg-orange-600 text-white shadow-lg"
                       : "bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
                   }`}
                 >

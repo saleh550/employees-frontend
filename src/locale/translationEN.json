@@ -55,5 +55,14 @@
   "DAY_TYPE_FULL": "Full Day",
   "DAY_TYPE_HALF": "Half Day",
   "EMPLOYEE_NOTES": "Employee Notes",
-  "EMPLOYEE_NOTES_PLACEHOLDER": "Enter any notes about the employee (e.g., performance, behavior, etc.)"
+  "EMPLOYEE_NOTES_PLACEHOLDER": "Enter any notes about the employee (e.g., performance, behavior, etc.)",
+  "MONTHLY_SUMMARY": "Monthly Summary",
+  "TOTAL_HOURS": "Total Hours",
+  "FULL": "Full",
+  "HALF": "Half",
+  "DEFAULT_WORK_HOURS": "Default Work Hours",
+  "NO_WORKLOGS_TITLE": "No work logs yet",
+  "NO_WORKLOGS_DESC": "It looks like there are no work days in this month for this employee. Click the button below to add your first work day and start tracking hours and payments.",
+  "ADD_WORK_LOG": "Add Work Day"
+
 }

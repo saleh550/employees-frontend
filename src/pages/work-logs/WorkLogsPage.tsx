@@ -5,6 +5,7 @@ import EmployeeDetails from "./components/EmplyeeDetails";
 import WorkLogsList from "./components/WorLogsList";
 import { getWorkLogsForEmployee } from "../../utils/worklogs.utils";
 import { useWorkLogs } from "../../store/useWorkLogs";
+import WorkLogsFooter from "./components/work-logs-summary/WorkLogsFooter";
 
 interface props {}
 
@@ -55,6 +56,14 @@ const WorkLogsPage: React.FC<props> = () => {
         setIsAddWorkLogModalOpen={setIsAddWorkLogModalOpen}
         isAddWorkLogModalOpen={isAddWorkLogModalOpen}
       />
+      <hr
+        style={{
+          margin: "1rem 10px",
+          border: "none",
+          borderBottom: "2px solid #ccc",
+        }}
+      />
+      <WorkLogsFooter/>
     </div>
   );
 };
