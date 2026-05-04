@@ -14,3 +14,11 @@ export const createNewWorkLogApi = (data: FieldValues) => {
     data,
   });
 };
+
+export const deleteWorkLogApi = (id: string) => {
+  return privateRequest({
+    url: `/api/worklogs/${id}`,
+    method: "DELETE",
+    
+  });
+};

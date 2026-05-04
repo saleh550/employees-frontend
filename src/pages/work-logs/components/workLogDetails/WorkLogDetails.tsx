@@ -2,13 +2,16 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useWorkLogs } from "../../../../store/useWorkLogs";
 import { useLanguage } from "../../../../store/useLanguage";
+import { deleteWorkLog } from "../../../../utils/worklogs.utils";
 
 interface Props {
   rate: number;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const WorkLogDetails: React.FC<Props> = ({ rate }) => {
-  const { selectedLog } = useWorkLogs();
+const WorkLogDetails: React.FC<Props> = ({ rate, setIsModalOpen }) => {
+  const { selectedLog ,deleteWorkLogStore} = useWorkLogs();
+  const [isLoading, setIsLoading] = React.useState(false);
   const { currentLanguage } = useLanguage();
   const { t } = useTranslation();
 
@@ -50,13 +53,14 @@ const WorkLogDetails: React.FC<Props> = ({ rate }) => {
       },
     );
   };
-  const onEdit = (id: string) => {
-    // You can set the selected log in a state and then open the edit modal
-    console.log("Edit log with id:", id);
-  };
-  const onDelete = (id: string) => {
+//   const onEdit = (id: string) => {
+//     // You can set the selected log in a state and then open the edit modal
+//     console.log("Edit log with id:", id);
+//   };
+  const onDelete = async(id: string) => {
     // You can call the delete API here and then refresh the logs list
     console.log("Delete log with id:", id);
+    await deleteWorkLog(id, deleteWorkLogStore, setIsLoading, setIsModalOpen);
   };
   return (
     <div className=" rounded-2xl   w-full mx-auto">
@@ -167,7 +171,7 @@ const WorkLogDetails: React.FC<Props> = ({ rate }) => {
           }}
           className="flex-1 py-2 rounded-lg bg-red-500 hover:bg-red-600 text-white text-sm font-medium shadow-md transition-all duration-200 active:scale-95"
         >
-          🗑️ {t("DELETE")}
+          🗑️ {isLoading ? t("DELETING") : t("DELETE")}
         </button>
       </div>
     </div>

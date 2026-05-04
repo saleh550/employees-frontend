@@ -3,6 +3,7 @@ import type { WorkLogType } from "../types/types";
 import type { SetStateAction } from "react";
 import {
   createNewWorkLogApi,
+  deleteWorkLogApi,
   getWorkLogsApi,
 } from "../services/workLogs/workLogs-apis";
 import type { AxiosError } from "axios";
@@ -52,6 +53,33 @@ export const createWorkLog = async (
     setIsLoading(false);
     console.log(err);
     toast.error("Failed to create work log");
+    return null;
+  } finally {
+    setIsModalOpen(false);
+  }
+};
+
+export const deleteWorkLog = async (
+  id: string,
+  deleteWorkLogStore: (id: string) => void,
+  setIsLoading: (value: SetStateAction<boolean>) => void,
+  setIsModalOpen: (value: SetStateAction<boolean>) => void,
+): Promise<any | null> => {
+  try {
+    setIsLoading(true);
+    const res = await deleteWorkLogApi(id);
+    console.log(res?.data);
+    if (res?.data.id === id) {
+      deleteWorkLogStore(id);
+    }else {
+      toast.error("Failed to delete work log");
+    }
+    setIsLoading(false);
+    return true;
+  } catch (err: AxiosError | any) {
+    setIsLoading(false);
+    console.log(err);
+    toast.error("Failed to delete work log");
     return null;
   } finally {
     setIsModalOpen(false);

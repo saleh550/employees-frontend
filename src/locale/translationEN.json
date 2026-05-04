@@ -73,5 +73,7 @@
   "NOTES": "Notes",
   "TOTAL_AMOUNT": "Total Amount",
   "DAY_TYPE": "Day Type",
-  "DELETE_CONFIRM": "Are you sure you want to delete this log?"
+  "DELETE_CONFIRM": "Are you sure you want to delete this log?",
+  "DELETE": "Delete", 
+  "DELETING": "Deleting..."
 }

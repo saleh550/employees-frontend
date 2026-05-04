@@ -109,7 +109,10 @@ const WorkLogsList: React.FC<Props> = ({
       >
         {/* <AddWorkLogForm setIsAddWorkLogModalOpen={setIsAddWorkLogModalOpen} /> */}
         {/* <AddWorkLogForm setIsAddEmployeeModalOpen={setIsAddWorkLogModalOpen} /> */}
-        <WorkLogDetails rate={rate}  />
+        <WorkLogDetails
+          rate={rate}
+          setIsModalOpen={setIsWorkLogDetailsModalOpen}
+        />
       </Modal>
     </div>
   );
