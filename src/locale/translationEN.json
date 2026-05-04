@@ -41,5 +41,16 @@
   "HIRE_DATE_PLACEHOLDER": "Select hire date",
   "ADD_EMPLOYEE_FORM_DEFAULT_WORK_HOURS": "Default Work Hours",
   "DEFAULT_WORK_HOURS_PLACEHOLDER": "Enter default work hours (e.g., 09:00-17:00)",
-  "TO": "to"
+  "TO": "to",
+  "ADD_NEW_WORK_LOG": "Add New Day Log",
+  "WORK_LOGS": "Work Logs",
+  "ADD_TIME_RANGE": "Add Time Range",
+  "WORK_LOG_FOR": "Work Log for",
+  "SELECT_EMPLOYEE_FIRST": "Select an employee first",
+  "ADD_WORK_LOG_FORM_PAY_TYPE": "Pay Type",
+  "ADD_WORK_LOG_FORM_DAY_TYPE": "Day Type",
+  "DAY_TYPE_FULL": "Full Day",
+  "DAY_TYPE_HALF": "Half Day",
+  "EMPLOYEE_NOTES": "Employee Notes",
+  "EMPLOYEE_NOTES_PLACEHOLDER": "Enter any notes about the employee (e.g., performance, behavior, etc.)"
 }

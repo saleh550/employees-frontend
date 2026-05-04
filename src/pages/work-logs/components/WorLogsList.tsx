@@ -1,65 +1,42 @@
 import React from "react";
-import type { WorkLogType } from "../../../types/types";
 import { useWorkLogs } from "../../../store/useWorkLogs";
 import WorkLogsLoadingCards from "../../../components/loadings/WorkLogsLoadingCards";
 import MonthsScroller from "./MonthsScroller";
 import YearsScroller from "./YearsScroller";
 import { useParams } from "react-router-dom";
 import { getWorkLogsForEmployee } from "../../../utils/worklogs.utils";
+import WorkLogCard from "./WorkLogCard";
+import { GoPersonAdd } from "react-icons/go";
+import { useTranslation } from "react-i18next";
+import Modal from "../../../components/modals/Modal";
+import AddWorkLogForm from "./add-work-log/AddWorkLogForm";
 
 interface Props {
   rate: number; // rate of employee
   payType?: "hour" | "day";
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsAddWorkLogModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isAddWorkLogModalOpen:boolean;
 }
 
-const WorkLogsList: React.FC<Props> = ({ rate, isLoading, setIsLoading }) => {
+const WorkLogsList: React.FC<Props> = ({
+  rate,
+  isLoading,
+  setIsLoading,
+  setIsAddWorkLogModalOpen,
+  isAddWorkLogModalOpen
+}) => {
   const { employeeId } = useParams();
+  const { t } = useTranslation();
   const {
-    workLogs,
     setSelectedMonth,
     setSelectedYear,
     selectedMonth,
     selectedYear,
     setWrokLogs,
   } = useWorkLogs();
-  const formatDate = (dateStr: string) => {
-    const d = new Date(dateStr);
-    return `${d.getDate().toString().padStart(2, "0")}/${(d.getMonth() + 1)
-      .toString()
-      .padStart(2, "0")}`;
-  };
 
-  const calculateAmount = (log: WorkLogType) => {
-    if (log.type === "hour") {
-      const start = new Date(`1970-01-01T${log.startTime}`);
-      const end = new Date(`1970-01-01T${log.endTime}`);
-      const hours = (end.getTime() - start.getTime()) / (1000 * 60 * 60);
-      return hours * rate;
-    }
-
-    if (log.type === "day") {
-      const days = log.dayType === "half" ? 0.5 : 1;
-      return days * rate;
-    }
-
-    return 0;
-  };
-
-  const getDisplayText = (log: WorkLogType) => {
-    if (log.type === "hour") {
-      return `${log.startTime} - ${log.endTime}`;
-    }
-
-    if (log.type === "day") {
-      return log.dayType === "half"
-        ? `Half Day - ${log.startTime} - ${log.endTime}`
-        : `Full Day - ${log.startTime} - ${log.endTime}`;
-    }
-
-    return "";
-  };
   const onSelectYear = async (year: number) => {
     setSelectedYear(year);
     if (employeeId) {
@@ -84,62 +61,31 @@ const WorkLogsList: React.FC<Props> = ({ rate, isLoading, setIsLoading }) => {
   };
 
   return (
-    <>
-      <div className="-6 bg-black/1 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-6 mx-2">
-        <div className="px-4 py-4">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-            Work Logs
+    <div className="py-6 bg-black/2 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-6 mx-2">
+      <div className="flex justify-between">
+        <div className="rounded-2xl  mb-6  mx-2">
+          <h2 className="  text-xl font-semibold text-gray-900 dark:text-white">
+          {t("WORK_LOGS")}
           </h2>
         </div>
+        <button
+          onClick={() => setIsAddWorkLogModalOpen(true)}
+          className="mb-4 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition flex justify-center items-center gap-2"
+        >
+          <GoPersonAdd className="text-lg font-semibold" />{" "}
+          {t("ADD_NEW_WORK_LOG")}
+        </button>
       </div>
       <YearsScroller onSelect={(y) => onSelectYear(y)} />
       <MonthsScroller onSelect={(m) => onSelectMonth(m)} />
       {/* <IOSDatePicker/> */}
-      {isLoading ? (
-        <WorkLogsLoadingCards />
-      ) : (
-        <div className="space-y-3 mx-2">
-          {workLogs &&
-            workLogs?.map((log) => {
-              const amount = calculateAmount(log);
-
-              return (
-                <div
-                  key={log._id}
-                  className="flex items-center gap-4 p-3 rounded-xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-md shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition"
-                >
-                  {/* Date Circle */}
-                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-linear-to-r from-blue-500 to-green-400 text-white text-sm font-bold">
-                    {formatDate(log.date)}
-                  </div>
-
-                  {/* Details */}
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-gray-800 dark:text-white">
-                      {getDisplayText(log)}
-                    </p>
-
-                    {log.notes && (
-                      <p className="text-xs text-gray-500">{log.notes}</p>
-                    )}
-                  </div>
-
-                  {/* Amount */}
-                  <div className="text-right">
-                    <p className="text-sm font-semibold text-green-600">
-                      ₪ {amount.toFixed(2)}
-                    </p>
-
-                    <p className="text-xs text-gray-400">
-                      {log.type === "hour" ? "Hourly" : "Daily"}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-        </div>
-      )}
-    </>
+      {isLoading ? <WorkLogsLoadingCards /> : <WorkLogCard rate={rate} />}
+              <Modal isOpen={isAddWorkLogModalOpen} setIsOpen={setIsAddWorkLogModalOpen} title={t("ADD_NEW_WORK_LOG")}>
+                {/* <AddWorkLogForm setIsAddWorkLogModalOpen={setIsAddWorkLogModalOpen} /> */}
+                <AddWorkLogForm setIsAddEmployeeModalOpen={setIsAddWorkLogModalOpen} />
+             
+            </Modal>
+    </div>
   );
 };
 

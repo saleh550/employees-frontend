@@ -42,5 +42,16 @@
   "HIRE_DATE_PLACEHOLDER": "اختر تاريخ التوظيف",
   "ADD_EMPLOYEE_FORM_DEFAULT_WORK_HOURS": "ساعات العمل الافتراضية",
   "DEFAULT_WORK_HOURS_PLACEHOLDER": "أدخل ساعات العمل الافتراضية (e.g., 09:00-17:00)",
-  "TO": "إلى"
+  "TO": "إلى",
+  "ADD_NEW_WORK_LOG": "إضافة  يوم عمل جديد",
+  "WORK_LOGS": "سجلات العمل",
+  "ADD_TIME_RANGE": "إضافة فترة زمنية",
+  "WORK_LOG_FOR": "سجل العمل ل",
+  "SELECT_EMPLOYEE_FIRST": "اختر موظفًا أولاً",
+  "ADD_WORK_LOG_FORM_PAY_TYPE": "نوع الأجر",
+  "ADD_WORK_LOG_FORM_DAY_TYPE": "نوع اليوم",
+  "DAY_TYPE_FULL": "يوم كامل",
+  "DAY_TYPE_HALF": "نصف يوم",
+  "EMPLOYEE_NOTES": "ملاحظات الموظف",
+  "EMPLOYEE_NOTES_PLACEHOLDER": "أدخل أي ملاحظات حول الموظف (e.g., الأداء، السلوك، إلخ)"
 }

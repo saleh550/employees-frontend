@@ -42,5 +42,16 @@
   "HIRE_DATE_PLACEHOLDER": "בחר תאריך העסקה",
   "ADD_EMPLOYEE_FORM_DEFAULT_WORK_HOURS": "שעות עבודה ברירת מחדל",
   "DEFAULT_WORK_HOURS_PLACEHOLDER": "הזן שעות עבודה ברירת מחדל (e.g., 09:00-17:00)",
-  "TO": "עד"
+  "TO": "עד",
+  "ADD_NEW_WORK_LOG": "הוסף יום עבודה חדש",
+  "WORK_LOGS": "יומני עבודה",
+  "ADD_TIME_RANGE": "הוסף טווח זמן",
+  "WORK_LOG_FOR": "יומן עבודה עבור",
+  "SELECT_EMPLOYEE_FIRST": "בחר עובד תחילה",
+  "ADD_WORK_LOG_FORM_PAY_TYPE": "סוג תשלום",
+  "ADD_WORK_LOG_FORM_DAY_TYPE": "סוג יום",
+  "DAY_TYPE_FULL": "יום מלא",
+  "DAY_TYPE_HALF": "חצי יום",
+  "EMPLOYEE_NOTES": "הערות על העובד",
+  "EMPLOYEE_NOTES_PLACEHOLDER": "הזן כל הערה על העובד (e.g., ביצועים, התנהגות, וכו')"
 }

@@ -13,6 +13,8 @@ const WorkLogsPage: React.FC<props> = () => {
   const { selectedEmployee, setSelectedEmployee, employees } = useEmployees();
   const { setWrokLogs } = useWorkLogs();
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isAddWorkLogModalOpen, setIsAddWorkLogModalOpen] =
+    React.useState(false);
 
   useEffect(() => {
     const fun = async () => {
@@ -50,6 +52,8 @@ const WorkLogsPage: React.FC<props> = () => {
         payType={selectedEmployee?.payType}
         isLoading={isLoading}
         setIsLoading={setIsLoading}
+        setIsAddWorkLogModalOpen={setIsAddWorkLogModalOpen}
+        isAddWorkLogModalOpen={isAddWorkLogModalOpen}
       />
     </div>
   );
