@@ -26,7 +26,7 @@ export const login = async (
     setIsLoading(false);
     const {token,...user} = res?.data;
     setUser({ accessToken: token, user });
-    navigate("/maneger/home");
+    navigate("/");
     return res?.data;   
   } catch (err: AxiosError | any) {
     setIsLoading(false);

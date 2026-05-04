@@ -1,20 +1,18 @@
 import { useTranslation } from "react-i18next";
-import type { EmployeeType } from "../../../types/types";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useEmployees } from "../../../store/useEmployees";
 import { deleteEmployeeUtil } from "../../../utils/employees.utils";
 import Modal from "../../../components/modals/Modal";
 import EditEmployeeForm from "./forms/EditEmployeeForm";
+import FullScreenLoader from "../../../components/loadings/LoadingPage";
 
-interface Props {
-  employee: EmployeeType;
-}
+interface Props {}
 
-const EmployeeDetails: React.FC<Props> = ({ employee }) => {
+const EmployeeDetails: React.FC<Props> = ({}) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { deleteEmployee } = useEmployees();
+  const { deleteEmployee, selectedEmployee } = useEmployees();
   const [isEditModalOpen, setIsEditModalOpen] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
   const onEdit = () => {
@@ -23,43 +21,46 @@ const EmployeeDetails: React.FC<Props> = ({ employee }) => {
 
   const onDelete = async () => {
     await deleteEmployeeUtil(
-      employee._id,
+      selectedEmployee._id,
       deleteEmployee,
       setIsLoading,
       navigate,
     );
   };
+  if (!selectedEmployee) {
+    return <FullScreenLoader />;
+  }
   return (
     <div className="p-6 bg-black/5 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-6 mx-2">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
-          {employee.name}
+          {selectedEmployee.name}
         </h2>
 
         <span
           className={`text-xs px-3 py-1 rounded-full font-semibold ${
-            employee.payType === "hour"
+            selectedEmployee.payType === "hour"
               ? "bg-blue-100 text-blue-600"
               : "bg-purple-100 text-purple-600"
           }`}
         >
-          {employee.payType === "hour" ? "Per Hour" : "Per Day"}
+          {selectedEmployee.payType === "hour" ? "Per Hour" : "Per Day"}
         </span>
       </div>
 
       {/* Info */}
       <div className="space-y-2 text-gray-600 dark:text-gray-300">
         <p>
-          <span className="font-semibold">{t("RATE")}:</span> ₪{employee.rate} /{" "}
-          {employee.payType}
+          <span className="font-semibold">{t("RATE")}:</span> ₪
+          {selectedEmployee.rate} / {selectedEmployee.payType}
         </p>
 
         {/* <p>
           <span className="font-semibold">
-            {employee.payType === "hour" ? "Hours" : "Days"} worked (this month):
+            {selectedEmployee.payType === "hour" ? "Hours" : "Days"} worked (this month):
           </span>{" "}
-          {employee.workAmount}
+          {selectedEmployee.workAmount}
         </p> */}
 
         {/* <p>
@@ -71,16 +72,17 @@ const EmployeeDetails: React.FC<Props> = ({ employee }) => {
 
         <p>
           <span className="font-semibold">{t("HIRE_DATE")}:</span>{" "}
-          {new Date(employee.hireDate).toLocaleDateString()}
+          {new Date(selectedEmployee.hireDate).toLocaleDateString()}
         </p>
       </div>
 
       {/* Default Working Hours */}
-      {employee.defaultStartTime && employee.defaultEndTime && (
+      {selectedEmployee.defaultStartTime && selectedEmployee.defaultEndTime && (
         <div className="mt-4 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
           <p className="text-sm text-gray-700 dark:text-gray-300">
             <span className="font-semibold">{t("DEFAULT_WORK_HOURS")}:</span>{" "}
-            {employee.defaultStartTime} - {employee.defaultEndTime}
+            {selectedEmployee.defaultStartTime} -{" "}
+            {selectedEmployee.defaultEndTime}
           </p>
         </div>
       )}

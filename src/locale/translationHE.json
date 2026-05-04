@@ -82,5 +82,7 @@
   "EDIT": "עריכה",
   "UPDATE_EMPLOYEE": "עדכון עובד",
   "LOGGED_IN_AS": "מחובר בתור",
-  "LOGOUT": "התנתק"
+  "LOGOUT": "התנתק",
+  "NO_EMPLOYEES_TITLE": "אין עובדים עדיין",
+  "NO_EMPLOYEES_DESC": "התחל בהוספת עובד ראשון כדי לנהל את הצוות שלך."
 }

@@ -82,5 +82,7 @@
   "EDIT": "تعديل",
   "UPDATE_EMPLOYEE": "تحديث الموظف",
   "LOGGED_IN_AS": "تسجيل الدخول باسم",
-  "LOGOUT": "تسجيل الخروج"
+  "LOGOUT": "تسجيل الخروج",
+  "NO_EMPLOYEES_TITLE": "لا يوجد موظفون بعد",
+  "NO_EMPLOYEES_DESC": "ابدأ بإضافة أول موظف لإدارة فريقك."
 }

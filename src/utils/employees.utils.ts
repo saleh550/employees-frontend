@@ -26,7 +26,6 @@ export const getActiveEmployees = async (
     const res = await getActiveEmployeesApi();
     setIsLoading(false);
     setData(res?.data);
-    // navigate("/maneger/home");
     return res?.data;
   } catch (err: AxiosError | any) {
     setIsLoading(false);
@@ -66,7 +65,7 @@ export const deleteEmployeeUtil = async (
   try {
     setIsLoading(true);
     const res = await deleteEmployeeApi(id);
-    navigate("/maneger/home");
+    navigate("/");
     if (res.status === 200) {
       toast.success("Employee deleted successfully");
       deleteEmployee(id);

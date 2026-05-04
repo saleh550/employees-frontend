@@ -41,8 +41,8 @@ const WorkLogsPage: React.FC<props> = () => {
 
   return (
     <div>
-      <BackButton/>
-      <EmployeeDetails employee={selectedEmployee!} />
+      <BackButton />
+      <EmployeeDetails />
       <hr
         style={{
           margin: "1rem 10px",
@@ -65,7 +65,7 @@ const WorkLogsPage: React.FC<props> = () => {
           borderBottom: "2px solid #ccc",
         }}
       />
-      <WorkLogsFooter/>
+      <WorkLogsFooter />
     </div>
   );
 };

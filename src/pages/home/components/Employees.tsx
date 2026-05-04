@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import EmployeesLoadingCards from "../../../components/loadings/EmployeesLoadingCards";
 import { GoPersonAdd } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
+import EmptyEmployees from "../../../components/empty-message/EmptyEmployees";
 interface props {
     setIsAddEmployeeModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -27,6 +28,7 @@ const Employees: React.FC<props> = ({ setIsAddEmployeeModalOpen }) => {
       {isLoading ? (
         <EmployeesLoadingCards />
       ) : (
+        employees.length>0?
         <>
           <div className="flex justify-start">
             
@@ -102,7 +104,7 @@ const Employees: React.FC<props> = ({ setIsAddEmployeeModalOpen }) => {
               );
             })}
           </div>
-        </>
+        </>:<EmptyEmployees setIsAddEmployeeModalOpen={setIsAddEmployeeModalOpen}/>
       )}
     </div>
   );

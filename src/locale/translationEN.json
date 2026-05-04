@@ -81,5 +81,8 @@
   "EDIT": "Edit",
   "UPDATE_EMPLOYEE": "Update Employee",
   "LOGGED_IN_AS":"Logged in as",
-  "LOGOUT":"Logout"
+  "LOGOUT":"Logout",
+  "NO_EMPLOYEES_TITLE":"No employees yet",
+  "NO_EMPLOYEES_DESC":"Start by adding your first employee to manage your team."
+
 }

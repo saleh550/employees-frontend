@@ -23,21 +23,21 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/maneger/home",
+    path: "/",
 
     element: (
       <PrivateRoute>
-        <ManagerLayout />,
+        <ManagerLayout />
       </PrivateRoute>
     ),
 
     children: [
       {
-        path: "/maneger/home",
+        path: "/",
         element: <Home />,
       },
       {
-        path: "/maneger/home/work-logs/:employeeId",
+        path: "/work-logs/:employeeId",
         element: <WorkLogsPage />,
       },
     ],
