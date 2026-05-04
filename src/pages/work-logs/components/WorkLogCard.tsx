@@ -6,12 +6,16 @@ import { useTranslation } from "react-i18next";
 
 interface props {
   rate: number; // rate of employee
+  setIsWorkLogDetailsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const WorkLogCard: React.FC<props> = ({ rate }) => {
+const WorkLogCard: React.FC<props> = ({
+  rate,
+  setIsWorkLogDetailsModalOpen,
+}) => {
   const { currentLanguage } = useLanguage();
   const { t } = useTranslation();
-  const { workLogs } = useWorkLogs();
+  const { workLogs, setSelectedLog } = useWorkLogs();
   const getWorkingHours = (log: WorkLogType) => {
     const start = new Date(`1970-01-01T${log.startTime}`);
     const end = new Date(`1970-01-01T${log.endTime}`);
@@ -52,7 +56,13 @@ const WorkLogCard: React.FC<props> = ({ rate }) => {
       .toString()
       .padStart(2, "0")}`;
   };
-
+  const onWorkLogClick = (log: WorkLogType) => {
+    // You can set the selected log in a state and then open the modal
+    // For example:
+    // setSelectedLog(log);
+    setSelectedLog(log);
+    setIsWorkLogDetailsModalOpen(true);
+  };
   return (
     <div className="space-y-3 mx-2">
       {workLogs &&
@@ -61,6 +71,7 @@ const WorkLogCard: React.FC<props> = ({ rate }) => {
 
           return (
             <div
+              onClick={() => onWorkLogClick(log)}
               key={log._id}
               className="flex items-center gap-4 p-3 rounded-xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-md shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition"
             >

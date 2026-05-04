@@ -63,6 +63,15 @@
   "DEFAULT_WORK_HOURS": "Default Work Hours",
   "NO_WORKLOGS_TITLE": "No work logs yet",
   "NO_WORKLOGS_DESC": "It looks like there are no work days in this month for this employee. Click the button below to add your first work day and start tracking hours and payments.",
-  "ADD_WORK_LOG": "Add Work Day"
-
+  "ADD_WORK_LOG": "Add Work Day",
+  "BACK": "Back",
+  "BACK_TO_EMPLOYEES": "Back to Employees",
+  "WORKLOG_DETAILS": "Work Log Details",
+  "DATE": "Date",
+  "TYPE": "Type",
+  "TIME": "Time",
+  "NOTES": "Notes",
+  "TOTAL_AMOUNT": "Total Amount",
+  "DAY_TYPE": "Day Type",
+  "DELETE_CONFIRM": "Are you sure you want to delete this log?"
 }

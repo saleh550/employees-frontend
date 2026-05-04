@@ -6,6 +6,7 @@ import WorkLogsList from "./components/WorLogsList";
 import { getWorkLogsForEmployee } from "../../utils/worklogs.utils";
 import { useWorkLogs } from "../../store/useWorkLogs";
 import WorkLogsFooter from "./components/work-logs-summary/WorkLogsFooter";
+import BackButton from "./components/BackButton";
 
 interface props {}
 
@@ -40,6 +41,7 @@ const WorkLogsPage: React.FC<props> = () => {
 
   return (
     <div>
+      <BackButton/>
       <EmployeeDetails employee={selectedEmployee!} />
       <hr
         style={{

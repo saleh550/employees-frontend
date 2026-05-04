@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import Modal from "../../../components/modals/Modal";
 import AddWorkLogForm from "./add-work-log/AddWorkLogForm";
 import EmptyWorkLogs from "../../../components/empty-message/EmptyWorkLogs";
+import WorkLogDetails from "./workLogDetails/WorkLogDetails";
 
 interface Props {
   rate: number; // rate of employee
@@ -28,6 +29,8 @@ const WorkLogsList: React.FC<Props> = ({
   setIsAddWorkLogModalOpen,
   isAddWorkLogModalOpen,
 }) => {
+  const [isWorkLogDetailsModalOpen, setIsWorkLogDetailsModalOpen] =
+    React.useState(false);
   const { employeeId } = useParams();
   const { t } = useTranslation();
   const {
@@ -84,7 +87,10 @@ const WorkLogsList: React.FC<Props> = ({
       {isLoading ? (
         <WorkLogsLoadingCards />
       ) : workLogs.length > 0 ? (
-        <WorkLogCard rate={rate} />
+        <WorkLogCard
+          rate={rate}
+          setIsWorkLogDetailsModalOpen={setIsWorkLogDetailsModalOpen}
+        />
       ) : (
         <EmptyWorkLogs onAdd={() => setIsAddWorkLogModalOpen(true)} />
       )}
@@ -95,6 +101,15 @@ const WorkLogsList: React.FC<Props> = ({
       >
         {/* <AddWorkLogForm setIsAddWorkLogModalOpen={setIsAddWorkLogModalOpen} /> */}
         <AddWorkLogForm setIsAddEmployeeModalOpen={setIsAddWorkLogModalOpen} />
+      </Modal>
+      <Modal
+        isOpen={isWorkLogDetailsModalOpen}
+        setIsOpen={setIsWorkLogDetailsModalOpen}
+        title={t("WORKLOG_DETAILS")}
+      >
+        {/* <AddWorkLogForm setIsAddWorkLogModalOpen={setIsAddWorkLogModalOpen} /> */}
+        {/* <AddWorkLogForm setIsAddEmployeeModalOpen={setIsAddWorkLogModalOpen} /> */}
+        <WorkLogDetails rate={rate}  />
       </Modal>
     </div>
   );
