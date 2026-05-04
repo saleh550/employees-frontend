@@ -14,7 +14,7 @@ const BackButton: React.FC<props> = () => {
   };
 
   return (
-    <div className="flex justify-start mt-4 mx-2">
+    <div className="flex justify-start mt-10 mx-2">
       <button
         onClick={handleBack}
         className="group flex items-center gap-2 px-4 py-2 rounded-lg 

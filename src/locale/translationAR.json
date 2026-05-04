@@ -80,5 +80,7 @@
   "EDIT_EMPLOYEE": "تعديل الموظف",
   "EDIT_EMPLOYEE_FORM_TITLE": "تعديل الموظف",
   "EDIT": "تعديل",
-  "UPDATE_EMPLOYEE": "تحديث الموظف"
+  "UPDATE_EMPLOYEE": "تحديث الموظف",
+  "LOGGED_IN_AS": "تسجيل الدخول باسم",
+  "LOGOUT": "تسجيل الخروج"
 }

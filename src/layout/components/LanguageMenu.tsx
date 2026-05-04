@@ -23,7 +23,7 @@ const LnaguageMenu = () => {
     else document.body.dir = "rtl";
   };
   return (
-    <div className="">
+    <div className=" flex items-center justify-center">
       <Menu as="div" className="relative ">
         <div>
           <Menu.Button className=" p-2.5 text-gray-400 hover:text-gray-500">

@@ -79,5 +79,7 @@
   "EDIT_EMPLOYEE": "Edit Employee",
   "EDIT_EMPLOYEE_FORM_TITLE": "Edit Employee",
   "EDIT": "Edit",
-  "UPDATE_EMPLOYEE": "Update Employee"
+  "UPDATE_EMPLOYEE": "Update Employee",
+  "LOGGED_IN_AS":"Logged in as",
+  "LOGOUT":"Logout"
 }

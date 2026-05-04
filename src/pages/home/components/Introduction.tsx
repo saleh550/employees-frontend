@@ -12,7 +12,7 @@ const Introduction: React.FC = () => {
   );
 
   return (
-    <div className="p-6 bg-black/5 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-6">
+    <div className="p-6 bg-black/5 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-10">
       <h1 className="text-3xl font-bold mb-2 text-gray-800 dark:text-white">
         {t("EMPLOYEES_WORK_HOURS_DASHBOARD")}
       </h1>
