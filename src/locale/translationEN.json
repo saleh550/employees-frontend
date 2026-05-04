@@ -1,4 +1,5 @@
 {
+  "FULL_NAME":"Full Name",
   "USERNAME": "Username",
   "LOGIN": "Login",
   "EMAIL": "Email",
@@ -6,7 +7,7 @@
   "REMEMBERME": "Remember me",
   "FORGOTPASSWORD": "Forgot password?",
   "NOACCOUNT": "Don't have an account?",
-  "SIGNUP": "Sign up now",
+  "SIGNUP": "Sign up",
   "DAY": "Day",
   "HOUR": "Hour",
   "HOURLY": "Hourly",
@@ -83,6 +84,8 @@
   "LOGGED_IN_AS":"Logged in as",
   "LOGOUT":"Logout",
   "NO_EMPLOYEES_TITLE":"No employees yet",
-  "NO_EMPLOYEES_DESC":"Start by adding your first employee to manage your team."
+  "NO_EMPLOYEES_DESC":"Start by adding your first employee to manage your team.",
+  "SIGNUP_SUCCESS":"Signup successful",
+  "USER_IS_NOT_EXIST":"User does not exist"
 
 }

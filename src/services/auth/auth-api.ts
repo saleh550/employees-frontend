@@ -10,6 +10,13 @@ export const LoginApi = (data: FieldValues) => {
     data: data,
   });
 };
+export const registerApi = (data: FieldValues) => {
+  return publicRequest({
+    url: "/api/users",
+    method: "POST",
+    data: data,
+  });
+};
 export const me = () => {
   return privateRequest({
     url: "api/users/me/",

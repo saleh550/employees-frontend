@@ -2,7 +2,7 @@ import type { FieldValues } from "react-hook-form";
 import type { UserType } from "../../src/types/types";
 import type { SetStateAction } from "react";
 import type { NavigateFunction } from "react-router-dom";
-import { LoginApi } from "../../src/services/auth/auth-api";
+import { LoginApi, registerApi } from "../../src/services/auth/auth-api";
 import type { AxiosError } from "axios";
 import toast from "react-hot-toast";
 import type { TFunction } from "i18next";
@@ -31,7 +31,27 @@ export const login = async (
   } catch (err: AxiosError | any) {
     setIsLoading(false);
     console.log(err);
-    toast.error(t(err?.response?.data?.message) || t("SOMETHING_WENT_WRONG"));
+    toast.error(t(err?.response?.data?.message) || t(err?.data?.message) || t("SOMETHING_WENT_WRONG"));
+    return null;
+  }
+};
+export const signUp = async (
+  data: FieldValues,
+  setIsLoading: (value: SetStateAction<boolean>) => void,
+  navigate: NavigateFunction,
+  t: TFunction<"translation", undefined>
+
+): Promise<any | null> => {
+  try {
+    const res = await registerApi(data);
+    setIsLoading(false);
+    navigate("/auth");
+    toast.success(t("SIGNUP_SUCCESS"))
+    return res?.data;   
+  } catch (err: AxiosError | any) {
+    setIsLoading(false);
+    console.log(err);
+    toast.error(t(err?.response?.data?.message) || t(err?.data?.message) || t("SOMETHING_WENT_WRONG"));
     return null;
   }
 };

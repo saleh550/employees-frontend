@@ -5,6 +5,7 @@ import ManagerLayout from "../layout/manager-layout/ManagerLayout";
 import Home from "../pages/home/Home";
 import WorkLogsPage from "../pages/work-logs/WorkLogsPage";
 import PrivateRoute from "./PrivateRoute";
+import RegisterPage from "../pages/auth/RegisterPage";
 
 // Import your components here, e.g.:
 // import Home from '../pages/Home';
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/auth",
         element: <LoginPage />,
+      },
+      {
+        path: "/auth/signup",
+        element: <RegisterPage />,
       },
     ],
   },

@@ -1,4 +1,5 @@
 {
+  "FULL_NAME": "שם מלא",
   "USERNAME": "שם משתמש",
   "LOGIN": "התחברות",
   "EMAIL": "דואר אלקטרוני",
@@ -6,7 +7,7 @@
   "REMEMBERME": "זכור אותי",
   "FORGOTPASSWORD": "שכחת סיסמה?",
   "NOACCOUNT": "אין לך חשבון?",
-  "SIGNUP": "הירשם עכשיו",
+  "SIGNUP": "הרשמה",
   "DAY": "יום",
   "HOUR": "שעה",
   "HOURLY": "לפי שעה",
@@ -84,5 +85,7 @@
   "LOGGED_IN_AS": "מחובר בתור",
   "LOGOUT": "התנתק",
   "NO_EMPLOYEES_TITLE": "אין עובדים עדיין",
-  "NO_EMPLOYEES_DESC": "התחל בהוספת עובד ראשון כדי לנהל את הצוות שלך."
+  "NO_EMPLOYEES_DESC": "התחל בהוספת עובד ראשון כדי לנהל את הצוות שלך.",
+  "SIGNUP_SUCCESS": "ההרשמה בוצעה בהצלחה",
+  "USER_IS_NOT_EXIST": "המשתמש לא קיים"
 }
