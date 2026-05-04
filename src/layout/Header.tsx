@@ -4,6 +4,7 @@ import LnaguageMenu from "../layout/components/LanguageMenu";
 import Logodark from "../assets/logos/logo1.png"
 import Logolight from "../assets/logos/logo1.png"
 import { useDarkMode } from "../store/useDarkMode";
+import ThemeToggle from "./components/ThemeToggle";
 export default function Header() {
 const { currentDarkMode } = useDarkMode();
   return (
@@ -50,7 +51,7 @@ const { currentDarkMode } = useDarkMode();
         </nav>
         <div className="flex">
  
-          {/* <ThemeToggle /> */}
+          <ThemeToggle />
           <LnaguageMenu />
         </div>
       </div>
