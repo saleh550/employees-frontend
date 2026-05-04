@@ -66,7 +66,7 @@ const WorkLogsList: React.FC<Props> = ({
   };
 
   return (
-    <div className="py-6 bg-black/2 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-6 mx-2">
+    <div className="py-6 bg-black/5 dark:bg-gray-900/60  rounded-2xl shadow-md mb-6 mt-6 mx-2">
       <div className="flex justify-between">
         <div className="rounded-2xl  mb-6  mx-2">
           <h2 className="  text-xl font-semibold text-gray-900 dark:text-white">

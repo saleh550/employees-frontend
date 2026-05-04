@@ -48,7 +48,7 @@ const {t}=useTranslation();
   }, [workLogs, employees]);
 
   return (
-    <div className="py-6 px-2 bg-white/70 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-6 mx-2">
+    <div className="py-6 px-2 bg-black/5 dark:bg-gray-900/60  rounded-2xl shadow-md mb-6 mt-6 mx-2">
       <h3 className="text-lg font-semibold mb-3 text-gray-800 dark:text-white">
         {t("MONTHLY_SUMMARY")}
       </h3>

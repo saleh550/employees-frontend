@@ -34,7 +34,7 @@ const EmployeeDetails: React.FC<Props> = ({}) => {
     return <FullScreenLoader />;
   }
   return (
-    <div className="p-6 bg-black/5 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-6 mx-2">
+    <div className="p-6 bg-black/5 dark:bg-gray-900/60  rounded-2xl shadow-md mb-6 mt-6 mx-2">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
