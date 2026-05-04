@@ -1,18 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useWorkLogs } from "../../../store/useWorkLogs";
+import { useLanguage } from "../../../store/useLanguage";
 
 interface Props {
   onSelect: (month: number) => void;
 }
 
-const months = [
-  "Jan","Feb","Mar","Apr","May","Jun",
-  "Jul","Aug","Sep","Oct","Nov","Dec"
+const monthsl = [
+  { english: "Jan", hebrew: "ינואר", arabic: "يناير" },
+  { english: "Feb", hebrew: "פברואר", arabic: "فبراير" },
+  { english: "Mar", hebrew: "מרץ", arabic: "مارس" },
+  { english: "Apr", hebrew: "אפריל", arabic: "أبريل" },
+  { english: "May", hebrew: "מאי", arabic: "مايو" },
+  { english: "Jun", hebrew: "יוני", arabic: "يونيو" },
+  { english: "Jul", hebrew: "יולי", arabic: "يوليو" },
+  { english: "Aug", hebrew: "אוגוסט", arabic: "أغسطس" },
+  { english: "Sep", hebrew: "ספטמבר", arabic: "سبتمبر" },
+  { english: "Oct", hebrew: "אוקטובר", arabic: "أكتوبر" },
+  { english: "Nov", hebrew: "נובמבר", arabic: "نوفمبر" },
+  { english: "Dec", hebrew: "דצמבר", arabic: "ديسمبر" },
 ];
 
 const MonthsPicker: React.FC<Props> = ({ onSelect }) => {
+  const { currentLanguage } = useLanguage();
   const { selectedMonth } = useWorkLogs();
-
   const containerRef = useRef<HTMLDivElement | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(selectedMonth - 1);
@@ -32,12 +43,25 @@ const MonthsPicker: React.FC<Props> = ({ onSelect }) => {
       });
     }
   }, [selectedMonth]);
+  const getMonthsByLanguage = (month: {
+    english: string;
+    hebrew: string;
+    arabic: string;
+  }) => {
+    switch (currentLanguage) {
+      case "he":
+        return month.hebrew;
+      case "ar":
+        return month.arabic;
+      default:
+        return month.english;
+    }
+  };
 
   // 🎯 רק highlight בזמן גלילה (לא משנה selected)
   const handleScroll = () => {
     const container = containerRef.current;
     if (!container) return;
-
     const center = container.scrollLeft + container.clientWidth / 2;
 
     let closestIndex = 0;
@@ -73,13 +97,13 @@ const MonthsPicker: React.FC<Props> = ({ onSelect }) => {
         }}
       >
         <div className="flex gap-6 py-6 min-w-max">
-          {months.map((month, index) => {
+          {monthsl.map((month, index) => {
             const isSelected = index + 1 === selectedMonth;
             const isActive = index === activeIndex;
 
             return (
               <div
-                key={month}
+                key={month.english}
                 ref={(el) => {
                   if (el) itemRefs.current[index] = el;
                 }}
@@ -90,8 +114,8 @@ const MonthsPicker: React.FC<Props> = ({ onSelect }) => {
                   transform: isSelected
                     ? "scale(1.2)"
                     : isActive
-                    ? "scale(1.05)"
-                    : "scale(0.85)",
+                      ? "scale(1.05)"
+                      : "scale(0.85)",
                   opacity: isSelected ? 1 : isActive ? 0.7 : 0.4,
                 }}
               >
@@ -115,7 +139,7 @@ const MonthsPicker: React.FC<Props> = ({ onSelect }) => {
                       : "text-gray-500 dark:text-gray-400"
                   }`}
                 >
-                  {month}
+                  {getMonthsByLanguage(month)}
                 </span>
               </div>
             );
