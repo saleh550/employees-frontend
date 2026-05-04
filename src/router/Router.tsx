@@ -4,6 +4,7 @@ import { LoginPage } from "../pages/auth/LoginPage";
 import ManagerLayout from "../layout/manager-layout/ManagerLayout";
 import Home from "../pages/home/Home";
 import WorkLogsPage from "../pages/work-logs/WorkLogsPage";
+import PrivateRoute from "./PrivateRoute";
 
 // Import your components here, e.g.:
 // import Home from '../pages/Home';
@@ -22,24 +23,24 @@ const router = createBrowserRouter([
     ],
   },
   {
-      path: "/maneger/home",
+    path: "/maneger/home",
 
-      element:
-          // <PrivateRoute>
-              <ManagerLayout />,
-          // </PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <ManagerLayout />,
+      </PrivateRoute>
+    ),
 
-      children: [
-          {
-              path: "/maneger/home",
-              element: <Home />,
-          },
-          {
-              path: "/maneger/home/work-logs/:employeeId",
-              element: <WorkLogsPage />,
-          },
-
-      ],
+    children: [
+      {
+        path: "/maneger/home",
+        element: <Home />,
+      },
+      {
+        path: "/maneger/home/work-logs/:employeeId",
+        element: <WorkLogsPage />,
+      },
+    ],
   },
   // {
   //     element: <MenuLayout />,
