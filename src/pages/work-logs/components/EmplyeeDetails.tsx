@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { EmployeeType } from "../../../types/types";
 
 interface Props {
@@ -5,11 +6,9 @@ interface Props {
 }
 
 const EmployeeDetails: React.FC<Props> = ({ employee }) => {
-  const totalPay = employee.workAmount * employee.rate;
-
+  const { t } = useTranslation();
   return (
     <div className="p-6 bg-black/5 dark:bg-gray-900 rounded-2xl shadow-md mb-6 mt-6 mx-2">
-      
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
@@ -27,46 +26,42 @@ const EmployeeDetails: React.FC<Props> = ({ employee }) => {
         </span>
       </div>
 
-   
-
       {/* Info */}
       <div className="space-y-2 text-gray-600 dark:text-gray-300">
         <p>
-          <span className="font-semibold">Rate:</span> ₪{employee.rate} /{" "}
+          <span className="font-semibold">{t("RATE")}:</span> ₪{employee.rate} /{" "}
           {employee.payType}
         </p>
 
-        <p>
+        {/* <p>
           <span className="font-semibold">
             {employee.payType === "hour" ? "Hours" : "Days"} worked (this month):
           </span>{" "}
           {employee.workAmount}
-        </p>
+        </p> */}
 
-        <p>
+        {/* <p>
           <span className="font-semibold">Total Pay:</span>{" "}
           <span className="text-green-600 font-bold">
             ₪ {totalPay.toFixed(2)}
           </span>
-        </p>
+        </p> */}
 
         <p>
-          <span className="font-semibold">Hire Date:</span>{" "}
+          <span className="font-semibold">{t("HIRE_DATE")}:</span>{" "}
           {new Date(employee.hireDate).toLocaleDateString()}
         </p>
       </div>
 
       {/* Default Working Hours */}
-      {
-        employee.defaultStartTime &&
-        employee.defaultEndTime && (
-          <div className="mt-4 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
-            <p className="text-sm text-gray-700 dark:text-gray-300">
-              <span className="font-semibold">Default Shift:</span>{" "}
-              {employee.defaultStartTime} - {employee.defaultEndTime}
-            </p>
-          </div>
-        )}
+      {employee.defaultStartTime && employee.defaultEndTime && (
+        <div className="mt-4 p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            <span className="font-semibold">Default Shift:</span>{" "}
+            {employee.defaultStartTime} - {employee.defaultEndTime}
+          </p>
+        </div>
+      )}
 
       {/* Footer buttons */}
       {/* <div className="mt-6 flex gap-3">

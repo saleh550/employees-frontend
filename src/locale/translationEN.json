@@ -41,6 +41,7 @@
   "EMPLOYEE_NAME_PLACEHOLDER": "Enter employee name",
   "ADD_EMPLOYEE_FORM_HIRE_DATE": "Hire Date",
   "HIRE_DATE_PLACEHOLDER": "Select hire date",
+  "HIRE_DATE": "Hire Date",
   "ADD_EMPLOYEE_FORM_DEFAULT_WORK_HOURS": "Default Work Hours",
   "DEFAULT_WORK_HOURS_PLACEHOLDER": "Enter default work hours (e.g., 09:00-17:00)",
   "TO": "to",

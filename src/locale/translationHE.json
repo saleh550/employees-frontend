@@ -42,6 +42,7 @@
   "EMPLOYEE_NAME_PLACEHOLDER": "הזן שם עובד",
   "ADD_EMPLOYEE_FORM_HIRE_DATE": "תאריך העסקה",
   "HIRE_DATE_PLACEHOLDER": "בחר תאריך העסקה",
+  "HIRE_DATE": "תאריך העסקה",
   "ADD_EMPLOYEE_FORM_DEFAULT_WORK_HOURS": "שעות עבודה ברירת מחדל",
   "DEFAULT_WORK_HOURS_PLACEHOLDER": "הזן שעות עבודה ברירת מחדל (e.g., 09:00-17:00)",
   "TO": "עד",
