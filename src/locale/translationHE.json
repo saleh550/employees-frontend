@@ -87,5 +87,13 @@
   "NO_EMPLOYEES_TITLE": "אין עובדים עדיין",
   "NO_EMPLOYEES_DESC": "התחל בהוספת עובד ראשון כדי לנהל את הצוות שלך.",
   "SIGNUP_SUCCESS": "ההרשמה בוצעה בהצלחה",
-  "USER_IS_NOT_EXIST": "המשתמש לא קיים"
+  "USER_IS_NOT_EXIST": "המשתמש לא קיים",
+  "USERNAME_MIN_LENGTH": "שם המשתמש חייב להיות לפחות 2 תווים",
+  "PASSWORD_MIN_LENGTH": "הסיסמה חייבת להיות לפחות 6 תווים",
+  "ADD_EMPLOYEE_FORM_USERNAME": "שם משתמש",
+  "ADD_EMPLOYEE_FORM_PASSWORD": "סיסמה",
+  "REQUIRED_FIELD_MESSAGE": "שדה זה נדרש",
+  "EMPLOYEE_USERNAME_PLACEHOLDER": "הזן שם משתמש",
+  "EMPLOYEE_PASSWORD_PLACEHOLDER": "הזן סיסמה",
+  "NAME_MIN_LENGTH": "השם חייב להיות לפחות 2 תווים"
 }

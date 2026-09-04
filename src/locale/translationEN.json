@@ -86,6 +86,14 @@
   "NO_EMPLOYEES_TITLE":"No employees yet",
   "NO_EMPLOYEES_DESC":"Start by adding your first employee to manage your team.",
   "SIGNUP_SUCCESS":"Signup successful",
-  "USER_IS_NOT_EXIST":"User does not exist"
+  "USER_IS_NOT_EXIST":"User does not exist",
+  "USERNAME_MIN_LENGTH":"Username must be at least 2 characters long",
+  "PASSWORD_MIN_LENGTH":"Password must be at least 6 characters long",
+  "ADD_EMPLOYEE_FORM_USERNAME":"Username",
+  "ADD_EMPLOYEE_FORM_PASSWORD":"Password",
+  "REQUIRED_FIELD_MESSAGE":"This field is required",
+  "EMPLOYEE_USERNAME_PLACEHOLDER":"Enter employee username",
+  "EMPLOYEE_PASSWORD_PLACEHOLDER":"Enter employee password",
+  "NAME_MIN_LENGTH":"Name must be at least 2 characters long"
 
 }

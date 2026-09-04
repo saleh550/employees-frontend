@@ -9,6 +9,8 @@ import { editEmployee } from "../../../../utils/employees.utils";
 // 🧠 Validation schema
 const employeeSchema = z.object({
   name: z.string().min(2, { message: "NAME_MIN_LENGTH" }),
+  username: z.string().min(2, { message: "USERNAME_MIN_LENGTH" }),
+  password: z.string().optional(),
   rate: z.string().min(1, { message: "REQUIRED_FIELD_MESSAGE" }),
   payType: z.enum(["hour", "day"], { message: "PAY_TYPE_REQUIRED" }),
   hireDate: z.date({ message: "HIRE_DATE_REQUIRED" }),
@@ -102,6 +104,41 @@ const EditEmployeeForm: React.FC<EditEmployeeFormProps> = ({
           {errors.name && (
             <p className="text-red-500 text-sm mt-1">
               {t(errors.name.message ?? "")}
+            </p>
+          )}
+        </div>
+        {/* username */}
+        <div>
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
+            {t("ADD_EMPLOYEE_FORM_USERNAME")}
+          </label>
+          <input
+            defaultValue={selectedEmployee?.username}
+            type="text"
+            {...register("username")}
+            className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder={t("EMPLOYEE_USERNAME_PLACEHOLDER") as string}
+          />
+          {errors.username && (
+            <p className="text-red-500 text-sm mt-1">
+              {t(errors.username.message ?? "")}
+            </p>
+          )}
+        </div>
+        {/* password */}
+        <div>
+          <label className="block font-medium text-gray-700 dark:text-gray-200 mb-1">
+            {t("ADD_EMPLOYEE_FORM_PASSWORD")}
+          </label>
+          <input
+            type="password"
+            {...register("password")}
+            className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder={t("EMPLOYEE_PASSWORD_PLACEHOLDER") as string}
+          />
+          {errors.password && (
+            <p className="text-red-500 text-sm mt-1">
+              {t(errors.password.message ?? "")}
             </p>
           )}
         </div>
