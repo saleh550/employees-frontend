@@ -6,6 +6,9 @@ import Home from "../pages/home/Home";
 import WorkLogsPage from "../pages/work-logs/WorkLogsPage";
 import PrivateRoute from "./PrivateRoute";
 import RegisterPage from "../pages/auth/RegisterPage";
+import EmployeeLayout from "../layout/employee-layout/EmployeeLayout";
+import EmployeeHome from "../pages/employeeDashbord/EmployeeHome";
+import { EmployeeLoginPage } from "../pages/auth/employeeLogin";
 
 // Import your components here, e.g.:
 // import Home from '../pages/Home';
@@ -24,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/auth/signup",
         element: <RegisterPage />,
+      },
+            {
+        path: "/auth/login/employee",
+        element: <EmployeeLoginPage />,
       },
     ],
   },
@@ -45,6 +52,26 @@ const router = createBrowserRouter([
         path: "/work-logs/:employeeId",
         element: <WorkLogsPage />,
       },
+    ],
+  },
+  {
+    path: "/employee",
+
+    element: (
+      // <PrivateRoute>
+        <EmployeeLayout />
+      // </PrivateRoute>
+    ),
+
+    children: [
+      {
+        path: "/employee",
+        element: <EmployeeHome />,
+      },
+      // {
+      //   path: "/work-logs/:employeeId",
+      //   element: <WorkLogsPage />,
+      // },
     ],
   },
   // {

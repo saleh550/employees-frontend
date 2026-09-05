@@ -95,5 +95,11 @@
   "REQUIRED_FIELD_MESSAGE": "שדה זה נדרש",
   "EMPLOYEE_USERNAME_PLACEHOLDER": "הזן שם משתמש",
   "EMPLOYEE_PASSWORD_PLACEHOLDER": "הזן סיסמה",
-  "NAME_MIN_LENGTH": "השם חייב להיות לפחות 2 תווים"
+  "NAME_MIN_LENGTH": "השם חייב להיות לפחות 2 תווים",
+  "LOGIN_AS_EMPLOYEE": "התחבר כעובד",
+  "EMPLOYEE_LOGIN": "התחברות עובד",
+  "LOGIN_AS_ADMIN": "התחבר כמנהל",
+  "LOGIN_AS_EMPLOYEE_DESC": "התחבר כעובד כדי לעקוב אחר שעות העבודה שלך והתשלומים.",
+  "LOGIN_AS_ADMIN_DESC": "התחבר כמנהל כדי לנהל עובדים ושעות העבודה שלהם.",
+  "SIGNUP_AS_ADMIN": "הירשם כמנהל"
 }

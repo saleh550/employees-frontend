@@ -94,6 +94,12 @@
   "REQUIRED_FIELD_MESSAGE":"This field is required",
   "EMPLOYEE_USERNAME_PLACEHOLDER":"Enter employee username",
   "EMPLOYEE_PASSWORD_PLACEHOLDER":"Enter employee password",
-  "NAME_MIN_LENGTH":"Name must be at least 2 characters long"
+  "NAME_MIN_LENGTH":"Name must be at least 2 characters long",
+  "LOGIN_AS_EMPLOYEE":"Login as Employee",
+  "EMPLOYEE_LOGIN":"Employee Login",
+  "LOGIN_AS_ADMIN":"Login as Admin",
+  "LOGIN_AS_EMPLOYEE_DESC":"Login as an employee to track your work hours and payments.",
+  "LOGIN_AS_ADMIN_DESC":"Login as an admin to manage employees and their work hours.",
+  "SIGNUP_AS_ADMIN":"Sign up as Admin"
 
 }

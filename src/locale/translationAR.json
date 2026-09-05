@@ -95,5 +95,11 @@
   "REQUIRED_FIELD_MESSAGE": "هذا الحقل مطلوب",
   "EMPLOYEE_USERNAME_PLACEHOLDER": "أدخل اسم المستخدم",
   "EMPLOYEE_PASSWORD_PLACEHOLDER": "أدخل كلمة المرور",
-  "NAME_MIN_LENGTH": "الاسم يجب أن يكون على الأقل 2 أحرف"
+  "NAME_MIN_LENGTH": "الاسم يجب أن يكون على الأقل 2 أحرف",
+  "LOGIN_AS_EMPLOYEE": "تسجيل الدخول كموظف",
+  "LOGIN_AS_ADMIN": "تسجيل الدخول كمدير",
+  "EMPLOYEE_LOGIN": "تسجيل دخول الموظف",
+  "LOGIN_AS_EMPLOYEE_DESC": "تسجيل الدخول كموظف لتتبع ساعات عملك والمدفوعات.",
+  "LOGIN_AS_ADMIN_DESC": "تسجيل الدخول كمدير لإدارة الموظفين وساعات عملهم.",
+  "SIGNUP_AS_ADMIN": "التسجيل كمدير"
 }

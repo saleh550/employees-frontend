@@ -1,13 +1,13 @@
 import React from "react";
 
-import LoginForm from "./components/LoginForm";
-import Title from "./components/Title";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import EmployeeLoginNavigator from "./components/EmployeeLoginNavigator";
+// import { Link } from "react-router-dom";
+// import { useTranslation } from "react-i18next";
+import EmployeeTitle from "./components/EmployeeTitle";
+import EmployeeLoginForm from "./components/EmployeeLoginForm";
+import UserLoginNavigator from "./components/UserLoginNavigator";
 
-export const LoginPage: React.FC = () => {
-  const { t } = useTranslation();
+export const EmployeeLoginPage: React.FC = () => {
+//   const { t } = useTranslation();
   return (
     <>
       <div
@@ -15,7 +15,10 @@ export const LoginPage: React.FC = () => {
         className="isolate  px-6 py-20 sm:py-32 lg:px-8  rounded-lg"
       >
         <div className="flex justify-start space-x-4 my-4">
-        <EmployeeLoginNavigator />
+          <UserLoginNavigator />
+        </div>
+
+        {/* <div className="flex justify-start ">
           <Link
             to="/auth/signup"
             className="relative inline-flex items-center gap-2 px-6 py-2.5 rounded-full 
@@ -26,14 +29,14 @@ export const LoginPage: React.FC = () => {
                hover:from-blue-700 hover:to-indigo-700 
                active:scale-95"
           >
-            <span className="relative z-10">{t("SIGNUP_AS_ADMIN")}</span>
+            <span className="relative z-10">{t("SIGNUP")}</span>
 
-            {/* subtle glow */}
+       
             <span className="absolute inset-0 rounded-full bg-white/10 opacity-0 hover:opacity-100 transition duration-300" />
           </Link>
-        </div>
-        <Title />
-        <LoginForm />
+        </div> */}
+        <EmployeeTitle />
+        <EmployeeLoginForm />
       </div>
     </>
   );
