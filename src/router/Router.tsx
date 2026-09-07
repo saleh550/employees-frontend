@@ -9,6 +9,7 @@ import RegisterPage from "../pages/auth/RegisterPage";
 import EmployeeLayout from "../layout/employee-layout/EmployeeLayout";
 import EmployeeHome from "../pages/employeeDashbord/EmployeeHome";
 import { EmployeeLoginPage } from "../pages/auth/employeeLogin";
+import EmployeePrivateRoute from "./EmployeePrivateRoute";
 
 // Import your components here, e.g.:
 // import Home from '../pages/Home';
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
         path: "/auth/signup",
         element: <RegisterPage />,
       },
-            {
+      {
         path: "/auth/login/employee",
         element: <EmployeeLoginPage />,
       },
@@ -59,8 +60,9 @@ const router = createBrowserRouter([
 
     element: (
       // <PrivateRoute>
+      <EmployeePrivateRoute>
         <EmployeeLayout />
-      // </PrivateRoute>
+      </EmployeePrivateRoute>
     ),
 
     children: [
