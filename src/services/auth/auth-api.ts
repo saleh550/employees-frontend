@@ -10,6 +10,13 @@ export const LoginApi = (data: FieldValues) => {
     data: data,
   });
 };
+export const employeeLoginApi = (data: FieldValues) => {
+  return publicRequest({
+    url: "/api/employees/login",
+    method: "POST",
+    data: data,
+  });
+};
 export const registerApi = (data: FieldValues) => {
   return publicRequest({
     url: "/api/users",

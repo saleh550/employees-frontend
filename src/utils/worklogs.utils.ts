@@ -3,8 +3,11 @@ import type { WorkLogType } from "../types/types";
 import type { SetStateAction } from "react";
 import {
   createNewWorkLogApi,
+  createNewWorkLogByEmployeeApi,
   deleteWorkLogApi,
+  deleteWorkLogByEmployeeApi,
   getWorkLogsApi,
+  getWorkLogsByEmployeeApi,
 } from "../services/workLogs/workLogs-apis";
 import type { AxiosError } from "axios";
 import { toast } from "react-hot-toast";
@@ -16,7 +19,31 @@ export const getWorkLogsForEmployee = async (
 ): Promise<any | null> => {
   try {
     setIsLoading(true);
+    console.log("here data real by admin:",data);
     const res = await getWorkLogsApi(data);
+    console.log(res?.data);
+
+    setWorkLogs(res?.data.logs);
+    setIsLoading(false);
+    return true;
+  } catch (err: AxiosError | any) {
+    setIsLoading(false);
+    console.log(err);
+    toast.error("Failed to fetch work logs");
+    return null;
+  }
+};
+export const getWorkLogsForEmployeeByEmployee = async (
+  data: FieldValues,
+  setWorkLogs: (worklogs: WorkLogType[]) => void,
+  setIsLoading: (value: SetStateAction<boolean>) => void,
+): Promise<any | null> => {
+  try {
+    setIsLoading(true);
+    console.log("here data :",data);
+    const res = await getWorkLogsByEmployeeApi(data);
+    console.log("here logs :",res?.data);
+    
     console.log(res?.data);
 
     setWorkLogs(res?.data.logs);
@@ -58,6 +85,35 @@ export const createWorkLog = async (
     setIsModalOpen(false);
   }
 };
+export const createWorkLogByEmployee = async (
+  data: FieldValues,
+  addWorklog: (worklog: WorkLogType) => void,
+  setIsLoading: (value: SetStateAction<boolean>) => void,
+  setIsModalOpen: (value: SetStateAction<boolean>) => void,
+  selectedMonth: number,
+  selectedYear: number,
+): Promise<any | null> => {
+  try {
+    setIsLoading(true);
+    const res = await createNewWorkLogByEmployeeApi(data);
+    console.log(res?.data);
+    if (
+      selectedMonth === new Date(data.date).getMonth() + 1 &&
+      selectedYear === new Date(data.date).getFullYear()
+    ) {
+      addWorklog(res?.data);
+    }
+    setIsLoading(false);
+    return true;
+  } catch (err: AxiosError | any) {
+    setIsLoading(false);
+    console.log(err);
+    toast.error("Failed to create work log");
+    return null;
+  } finally {
+    setIsModalOpen(false);
+  }
+};
 
 export const deleteWorkLog = async (
   id: string,
@@ -71,7 +127,33 @@ export const deleteWorkLog = async (
     console.log(res?.data);
     if (res?.data.id === id) {
       deleteWorkLogStore(id);
-    }else {
+    } else {
+      toast.error("Failed to delete work log");
+    }
+    setIsLoading(false);
+    return true;
+  } catch (err: AxiosError | any) {
+    setIsLoading(false);
+    console.log(err);
+    toast.error("Failed to delete work log");
+    return null;
+  } finally {
+    setIsModalOpen(false);
+  }
+};
+export const deleteWorkLogByEmployee = async (
+  id: string,
+  deleteWorkLogStore: (id: string) => void,
+  setIsLoading: (value: SetStateAction<boolean>) => void,
+  setIsModalOpen: (value: SetStateAction<boolean>) => void,
+): Promise<any | null> => {
+  try {
+    setIsLoading(true);
+    const res = await deleteWorkLogByEmployeeApi(id);
+    console.log(res?.data);
+    if (res?.data.id === id) {
+      deleteWorkLogStore(id);
+    } else {
       toast.error("Failed to delete work log");
     }
     setIsLoading(false);

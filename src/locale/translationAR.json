@@ -87,5 +87,19 @@
   "NO_EMPLOYEES_TITLE": "لا يوجد موظفون بعد",
   "NO_EMPLOYEES_DESC": "ابدأ بإضافة أول موظف لإدارة فريقك.",
   "SIGNUP_SUCCESS": "تم إنشاء الحساب بنجاح",
-  "USER_IS_NOT_EXIST": "المستخدم غير موجود"
+  "USER_IS_NOT_EXIST": "المستخدم غير موجود",
+  "USERNAME_MIN_LENGTH": "يجب أن يكون اسم المستخدم على الأقل 2 أحرف",
+  "PASSWORD_MIN_LENGTH": "يجب أن تكون كلمة المرور على الأقل 6 أحرف",
+  "ADD_EMPLOYEE_FORM_USERNAME": "اسم المستخدم",
+  "ADD_EMPLOYEE_FORM_PASSWORD": "كلمة المرور",
+  "REQUIRED_FIELD_MESSAGE": "هذا الحقل مطلوب",
+  "EMPLOYEE_USERNAME_PLACEHOLDER": "أدخل اسم المستخدم",
+  "EMPLOYEE_PASSWORD_PLACEHOLDER": "أدخل كلمة المرور",
+  "NAME_MIN_LENGTH": "الاسم يجب أن يكون على الأقل 2 أحرف",
+  "LOGIN_AS_EMPLOYEE": "تسجيل الدخول كموظف",
+  "LOGIN_AS_ADMIN": "تسجيل الدخول كمدير",
+  "EMPLOYEE_LOGIN": "تسجيل دخول الموظف",
+  "LOGIN_AS_EMPLOYEE_DESC": "تسجيل الدخول كموظف لتتبع ساعات عملك والمدفوعات.",
+  "LOGIN_AS_ADMIN_DESC": "تسجيل الدخول كمدير لإدارة الموظفين وساعات عملهم.",
+  "SIGNUP_AS_ADMIN": "التسجيل كمدير"
 }

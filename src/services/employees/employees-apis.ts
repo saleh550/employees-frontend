@@ -1,5 +1,6 @@
 import { type FieldValues } from "react-hook-form";
 import { privateRequest } from "../axios/PrivateRequest";
+import { employeePrivateRequest } from "../axios/EmployeePrivateRequest";
 
 export const getActiveEmployeesApi = () => {
   return privateRequest({
@@ -27,6 +28,13 @@ export const editNewEmployeeApi = (id: string, data: FieldValues) => {
     url: `/api/employees/${id}`,
     method: "PUT",
     data,
+  });
+};
+
+export const employeeMe = () => {
+  return employeePrivateRequest({
+    url: "/api/employees/me/",
+    method: "GET",
   });
 };
 

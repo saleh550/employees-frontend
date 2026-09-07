@@ -6,6 +6,7 @@ export type EmployeeType = {
   _id: string;
   user: string;
   name: string;
+  username: string;
   payType: PayType;
   rate: number;
   hireDate: Date;
