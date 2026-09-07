@@ -24,12 +24,12 @@ const EmployeeHome: React.FC<props> = () => {
 
   useEffect(() => {
     const fun = async () => {
-      if (employeeUser._id) {
+      if (employeeUser?._id) {
         const date = new Date();
         console.log("data:1", employeeUser);
         
         const data = {
-          employeeId: employeeUser._id,
+          employeeId: employeeUser?._id,
           month: selectedMonth || date.getMonth() + 1,
           year: selectedYear || date.getFullYear(),
         };

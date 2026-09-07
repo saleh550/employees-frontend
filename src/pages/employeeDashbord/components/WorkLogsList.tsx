@@ -46,9 +46,9 @@ const WorkLogsList: React.FC<Props> = ({
 
   const onSelectYear = async (year: number) => {
     setSelectedYear(year);
-    if (employeeUser._id) {
+    if (employeeUser?._id) {
       const data = {
-        employeeId: employeeUser._id,
+        employeeId: employeeUser?._id,
         month: selectedMonth,
         year: year,
       };
@@ -59,9 +59,9 @@ const WorkLogsList: React.FC<Props> = ({
   };
   const onSelectMonth = async (month: number) => {
     setSelectedMonth(month);
-    if (employeeUser._id) {
+    if (employeeUser?._id) {
       const data = {
-        employeeId: employeeUser._id,
+        employeeId: employeeUser?._id,
         month: month,
         year: selectedYear,
       };
